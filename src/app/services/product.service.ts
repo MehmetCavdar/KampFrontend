@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ListResponseModel } from '../models/ListResponseModel';
+import { ListResponseModel } from '../models/listResponseModel';
 import { Product } from '../models/product';
 import { ResponseModel } from '../models/responseModel';
 
@@ -10,7 +10,7 @@ import { ResponseModel } from '../models/responseModel';
 })
 export class ProductService {
 
-  apiUrl = 'https://localhost:44314/api/';
+  apiUrl= "https://localhost:44356/api/";   // burasi backend Apinin html adresi
 
   constructor(private httpClient: HttpClient) { }
 
@@ -28,3 +28,7 @@ export class ProductService {
     return this.httpClient.post<ResponseModel>(this.apiUrl+"products/add",product)
   }
 }
+
+
+
+

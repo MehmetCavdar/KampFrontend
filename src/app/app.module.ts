@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http'
-import {FormsModule, ReactiveFormsModule} from "@angular/forms"
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
+import {HttpClientModule} from '@angular/common/http'; //Dikkat
+import {FormsModule, ReactiveFormsModule} from "@angular/forms"; //Dikkat
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations"; //Dikkat
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +15,7 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
 import {ToastrModule} from "ngx-toastr";
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
-import { ProductAddComponent } from './components/product-add/product-add.component'
+import { ProductAddComponent } from './components/product-add/product-add.component'; //Dikkat
 
 @NgModule({
   declarations: [
