@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http'; //Dikkat
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'; //Dikkat
 import {FormsModule, ReactiveFormsModule} from "@angular/forms"; //Dikkat
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations"; //Dikkat
 
@@ -15,7 +15,9 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
 import {ToastrModule} from "ngx-toastr";
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
-import { ProductAddComponent } from './components/product-add/product-add.component'; //Dikkat
+import { ProductAddComponent } from './components/product-add/product-add.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { LoginComponent } from './components/login/login.component'; // 21.ders kapsaminda login componenti olusunca oromatik eklenir
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { ProductAddComponent } from './components/product-add/product-add.compon
     VatAddedPipe,
     FilterPipePipe,
     CartSummaryComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    LoginComponent   // 21.ders kapsaminda login componenti olusunca oromatik eklenir
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,10 @@ import { ProductAddComponent } from './components/product-add/product-add.compon
       positionClass:"toast-bottom-right"
     })
   ],
-  providers: [],
+  // obje formatinda service injection yapiyoruz
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}   //21.ders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
